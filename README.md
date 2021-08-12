@@ -1,4 +1,4 @@
-![Promo image](/promo.png?raw=true)
+![Promo image](https://cdn.discordapp.com/attachments/856184857759711232/875349856808484924/image0.png)
 
 # Hop on Discord! ✌
 
