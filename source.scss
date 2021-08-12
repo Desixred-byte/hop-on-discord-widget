@@ -1,0 +1,199 @@
+// Font
+@import url('https://fonts.cdnfonts.com/css/whitney-2');
+
+// Variables
+$primary: #7289da;
+$dark: true;
+
+// Reset box sizing
+.discord-dialog *, .discord-dialog *:before, .discord-dialog *:after {
+  box-sizing: inherit;
+}
+
+// Reset link styling
+.discord-dialog a {
+  text-decoration: none;
+}
+
+// Style dialog transition upon click
+@keyframes discord-dialog__transition {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Box
+
+.discord-dialog {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  box-sizing: border-box;
+  display: none;
+  z-index: 2147483647;
+  position: fixed;
+  max-width: 288px;
+  right: 0;
+  bottom: 0;
+  margin: 18px;
+  border-radius: 10px;
+  font-family: 'Whitney', sans-serif;
+  @if $dark == true {
+    background: #2e3136;
+    color: #72767d;
+  } @else {
+    background: #fff;
+    color: #4f545c;
+  }
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: discord-dialog__transition 0.2s;
+
+  // Show dialog
+  &--active {
+    display: block;
+  }
+
+  // Containers
+  &__container {
+    font-size: 14px;
+    line-height: 1.2;
+    color: #99aab5;
+    padding: 8px 28px 28px 28px;
+  }
+
+  // Logo
+  &__logo {
+    display: none;
+    width: auto;
+    margin-top: 5px;
+    height: 24px;
+
+    path { fill: #fff; }
+  }
+}
+
+.discord-dialog__close-button {
+  position: absolute;
+  right: 0;
+  padding: 16px;
+  cursor: pointer;
+
+  // Color & interactions
+  svg {
+    height: 20px;
+    width: 20px;
+    path { fill: #ccc; }
+  }
+  &:hover { opacity: 0.8; }
+  &:active { opacity: 0.4; }
+}
+
+// Box Sections
+
+.discord-dialog__footer {
+  padding: 10px 20px;
+}
+
+// Box things
+
+.discord-dialog__guild-icon {
+  border-radius: 50%;
+  width: 64px;
+  display: block;
+  height: auto;
+  margin: 16px 0;
+}
+
+.discord-dialog__guild {
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 12px;
+  font-weight: bold;
+  @if $dark == true {
+    color: #fff;
+  } @else {
+    color: #4f545c;
+  }
+}
+
+.discord-dialog__btn {
+  background: $primary;
+  color: #fff;
+  text-align: center;
+  display: block;
+  border-radius: 1px;
+  margin: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  text-align: center;
+  padding: 12px 16px;
+  position: relative;
+  top: -6px;
+  box-shadow: 0 2px 4px rgba(#000, 0.3);
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover { background: mix(#fff, $primary, 10%); }
+  &:active { background: mix(#000, $primary, 10%); }
+}
+
+.discord-dialog__explainer {
+  display: block;
+  margin: 2px 8px;
+  color: $primary;
+  font-size: 12px;
+  text-align: right;
+  top: -6px;
+
+  &:hover { opacity: 0.8; }
+  &:active { opacity: 0.6; }
+}
+
+// Action button
+
+.discord-button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 50;
+  margin: 23.5px;
+  padding: 15.5px;
+  border-radius: 50%;
+  background: $primary;
+  cursor: pointer;
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  svg {
+    height: 28px;
+    width: 28px;
+    transition: background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    path {
+      fill: #fff;
+    }
+  }
+
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    svg {
+      opacity: 0.6;
+    }
+  }
+
+  &:active {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    svg {
+      opacity: 0.4;
+    }
+  }
+}
